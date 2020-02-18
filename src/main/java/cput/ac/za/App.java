@@ -8,8 +8,44 @@ public class App
 {
     Scanner scan = new Scanner(System.in);
 
+    public static void main(String[] args) {
+
+        App calculator = new App();
+        Scanner scan = new Scanner(System.in);
+        scan.useLocale(Locale.US);
+        int x;
+        double result = 0;
+        calculator.showMenu();
+        x = scan.nextInt();
+        functionSwich(calculator, x);
 
 
+    }
+
+    static void functionSwich(App calculator, int x)
+    {
+        switch (x) {
+            case 1:
+                double result = calculator.addition();
+                System.out.println(result);
+                break;
+            case 2:
+                result = calculator.substraction();
+                System.out.println(result);
+                break;
+            case 3:
+                result = calculator.mutliplication();
+                System.out.println(result);
+                break;
+            case 4:
+                result = calculator.division();
+                System.out.println(result);
+                break;
+            default:
+                System.out.println("Wrong choice: Try again");
+                break;
+        }
+    }
 
     public void showMenu() {
         System.out.println("1.Addition");
@@ -30,7 +66,6 @@ public class App
 
         return val;
     }
-
     public double mutliplication() {
         scan.useLocale(Locale.US);
         double a, b;
@@ -67,36 +102,4 @@ public class App
         return val;
     }
 
-    public static void main(String[] args) {
-        App calc = new App();
-        Scanner scan = new Scanner(System.in);
-        scan.useLocale(Locale.US);
-        int x;
-        double score;
-        calc.showMenu();
-        x = scan.nextInt();
-
-        switch (x) {
-            case 1:
-                score = calc.addition();
-                System.out.println(score);
-                break;
-            case 2:
-                score = calc.substraction();
-                System.out.println(score);
-                break;
-            case 3:
-                score = calc.mutliplication();
-                System.out.println(score);
-                break;
-            case 4:
-                score = calc.division();
-                System.out.println(score);
-                break;
-            default:
-                System.out.println("Wrong choice");
-                break;
-        }
-
-    }
 }
